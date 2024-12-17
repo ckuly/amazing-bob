@@ -1,4 +1,4 @@
-### **PROJECT MANAGEMENT APP by Owlet Group**  
+### **PROJECT MANAGEMENT APP by ckul**  
 This is an open-source Django-based web application designed to streamline project management for teams and organizations. It allows you to manage projects, tasks, clients, employees, and billing all in one place.  
 
 [![Join Our Discord](https://img.shields.io/badge/Join%20Our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mXkkp4JaCe)
