@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .project {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .project-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Projects Dashboard</h1>
+
+    {% for project in projects %}
+        <div class="project">
+            <div class="project-header">
+                <strong>{{ project.title }}</strong> ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
+            </div>
+            <p><strong>Manager:</strong> {{ project.manager }}</p>
+            <p><strong>Client:</strong> {{ project.client.company }}</p>
+
+            <h4>Employees:</h4>
+            <ul>
+                {% for employee in project.employees.all %}
+                    <li>{{ employee.name }} {{ employee.surname }} - {{ employee.position }}</li>
+                {% empty %}
+                    <li>No employees assigned.</li>
+                {% endfor %}
+            </ul>
+
+            <h4>Job:</h4>
+            <ul>
+                {% if project.jobs %}
+                    <li>{{ project.jobs.title }}: {{ project.jobs.notes|default:"No notes" }}</li>
+                {% else %}
+                    <li>No job assigned.</li>
+                {% endif %}
+            </ul>
+
+            <h4>Bill:</h4>
+            <ul>
+                {% if project.bills %}
+                    <li>Issued: {{ project.bills.date_of_issue }} | Cost: {{ project.bills.cost }} EUR</li>
+                {% else %}
+                    <li>No bills issued.</li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endfor %}
+</body>
+</html>
