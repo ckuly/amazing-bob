@@ -1,0 +1,81 @@
+/* Reset default styles for consistent rendering */
+body, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+/* Header bar container */
+#header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header content container */
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo styling */
+.logo a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logo a:hover {
+    color: #3897f0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Header button links */
+.header-button {
+    font-size: 14px;
+    font-weight: 500;
+    color: #262626;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-button:hover {
+    background-color: #eeeeee;
+    color: #000000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Active button styling (if needed) */
+.header-button.active {
+    background-color: #3897f0;
+    color: #ffffff;
+}
+
+/* Content adjustment for fixed header */
+#content {
+    margin-top: 80px; /* Adjust to match header height */
+    padding: 20px;
+}

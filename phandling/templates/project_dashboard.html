@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
 <html>
 <head>
     <title>Projects Dashboard</title>
@@ -29,12 +31,12 @@
     </style>
 </head>
 <body>
-    <h1>Projects Dashboard</h1>
+    <h1>All Projects Dashboard</h1>
 
     {% for project in projects %}
         <div class="project">
             <div class="project-header">
-                <strong>{{ project.title }}</strong> ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
+                <strong>[{{project.id}}] {{ project.title }}</strong> ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
             </div>
             <p><strong>Manager:</strong> {{ project.manager }}</p>
             <p><strong>Client:</strong> {{ project.client.company }}</p>
@@ -66,6 +68,9 @@
                 {% endif %}
             </ul>
         </div>
+    {% empty %}
+        <p>No projects found.</p>
     {% endfor %}
 </body>
 </html>
+{% endblock %}

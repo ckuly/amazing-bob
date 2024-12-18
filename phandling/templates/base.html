@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/home/">Amazing Bob</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/home/projects" class="header-button">All Projects</a>
+                <a href="/home/releases/" class="header-button">Releases</a>
+                <a href="/home/faq/" class="header-button">FAQ</a>
+                <a href="/accounts/profile" class="header-button">My Profile</a>
+                <a href="/accounts/projects" class="header-button">My Projects</a>
+                <a href="/accounts/register" class="header-button">Register</a>
+                <a href="/accounts/login" class="header-button">Login</a>
+            </nav>
+        </div>
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

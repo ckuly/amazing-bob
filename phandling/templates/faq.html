@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frequently Asked Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .faq-item h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .faq-item p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+        <h2>What is Amazing Bob?</h2>
+        <p>Amazing Bob is a project management platform designed to help teams manage and track their projects efficiently.</p>
+    </div>
+
+    <div class="faq-item">
+        <h2>How do I register?</h2>
+        <p>You can register by clicking on the "Register" button on the top right corner of the page.</p>
+    </div>
+
+    <div class="faq-item">
+        <h2>How do I log in?</h2>
+        <p>To log in, click on the "Login" button at the top right corner and enter your credentials.</p>
+    </div>
+
+    <div class="faq-item">
+        <h2>Can I manage my projects from my profile?</h2>
+        <p>Yes, you can manage all your projects from the "My Projects" section in your profile.</p>
+    </div>
+
+    <div class="faq-item">
+        <h2>Who can I contact for support?</h2>
+        <p>If you need support, you can reach out via the "Contact Us" form or email us at support@amazingbob.com.</p>
+    </div>
+</body>
+</html>
+{% endblock %}
