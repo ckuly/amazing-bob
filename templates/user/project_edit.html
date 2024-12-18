@@ -4,9 +4,16 @@
 <div class="container full-height">
     <h2>Edit Project</h2>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+
+        <!-- Add an input field for the project image -->
+        <div>
+            <label for="id_image">Image:</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+
         <button type="submit" class="header-button">Save Changes</button>
         <a href="{% url 'user_projects' %}" class="header-button">Cancel</a>
     </form>

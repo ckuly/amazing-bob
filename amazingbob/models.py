@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 
 class Project(models.Model):
@@ -11,6 +12,8 @@ class Project(models.Model):
     employees = models.ManyToManyField('Employee')
     jobs = models.ForeignKey('Job', on_delete=models.CASCADE)
     bills = models.ForeignKey('Bill', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='project_images/', blank=True, null=True)
+    description = HTMLField(blank=True, null=True)
 
     def __str__(self):
         return self.title

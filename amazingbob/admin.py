@@ -3,8 +3,8 @@ from .models import Project, Client, Employee, Job, Bill, Position
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ["title", "start_date", "end_date", "manager"]
-    list_filter = ["manager", "start_date", "end_date"]
+    list_display = ('title', 'start_date', 'end_date', 'client', 'manager', 'image')
+    list_filter = ('start_date', 'end_date')
     list_editable = ["manager"]
     search_fields = ["title", "manager__username"]
 

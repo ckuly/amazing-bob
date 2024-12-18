@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-<head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>{% block title %}User Projects{% endblock %}</title>
-</head>
 {% block content %}
 <div class="container full-height">
-    <a href="project_create/" class="header-button" onclick="alert('Create project functionality coming soon!')">Create Project</a>
+    <a href="{% url 'project_create' %}" class="header-button">Create Project</a>
 
     {% for project in projects %}
         <div class="release-item centered project-item">
+            {% if project.image and project.image.url %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }} Image" class="project-image" style="max-width: 200px; height: 200px; object-fit: cover;">
+            {% else %}
+                <p>No Image</p>
+            {% endif %}
             <div class="release-date">
                 <strong>[{{ project.id }}]</strong> {{ project.title }} - ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
             </div>
@@ -50,8 +50,19 @@
                 {% endif %}
             </ul>
 
+            <h4>Description:</h4>
+            <ul class="bill-list">
+                {% if project.description %}
+                    <li>{{ project.description | safe }}</li>
+                {% else %}
+                    <li>No description.</li>
+                {% endif %}
+            </ul>
+
             <div class="crud-buttons">
-                <a href="{% url 'user_projects' project.pk %}" class="header-button">View</a>
+                <a href="{% url 'user_projects' %}" class="header-button">Back to Projects</a>
+                <a href="{% url 'project_edit' project.pk %}" class="header-button">Edit</a>
+                <a href="{% url 'project_delete' project.pk %}" class="header-button">Delete</a>
             </div>
         </div>
     {% empty %}

@@ -73,15 +73,15 @@ def register(request):
 @login_required
 def project_create(request):
     if request.method == 'POST':
-        form = ProjectForm(request.POST)
+        form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
-            project.manager = request.user  # Associate the project with the logged-in user
+            project.manager = request.user
             project.save()
+            messages.success(request, 'Project created successfully.')
             return redirect('user_projects')
     else:
         form = ProjectForm()
-
     return render(request, 'user/project_create.html', {'form': form})
 
 @login_required
@@ -98,9 +98,10 @@ def project_delete(request, pk):
 def project_edit(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=project)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Project updated successfully.')
             return redirect('user_projects')
     else:
         form = ProjectForm(instance=project)
