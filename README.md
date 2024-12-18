@@ -1,16 +1,15 @@
-### **PROJECT MANAGEMENT APP by ckul**
+### **AMAZING BOB by ckul**
 
-This is an open-source Django-based web application designed to streamline project management for teams and
-organizations. It allows you to manage projects, tasks, clients, employees, and billing all in one place.
+This is an open-source Django-based web application designed to streamline project management for teams and organizations. It allows you to manage projects, tasks, clients, employees, positions, and billing all in one place.
 
 ---
 
 ### 📚 **USED TECHNOLOGIES**
 
-- **`Django`**: A powerful web framework for building the backend and frontend.
-- **`SQLite`**: Default database for storing application data.
-- **`Bootstrap`**: To enhance the UI and make it responsive (optional).
-- **`Python`**: The core programming language used for development.
+- **Django**: A powerful web framework for building the backend and frontend.
+- **SQLite**: Default database for storing application data.
+- **Bootstrap**: To enhance the UI and make it responsive (optional).
+- **Python**: The core programming language used for development.
 
 ---
 
@@ -19,15 +18,16 @@ organizations. It allows you to manage projects, tasks, clients, employees, and 
 #### Core Functionality:
 
 1. **Projects**:
-    - Create and view detailed project information, including title, start/end dates, associated employees, tasks, and
-      bills.
+    - Create and view detailed project information, including title, start/end dates, associated employees, tasks, and bills.
 2. **Clients**:
     - Manage client details such as name, company, and contact information.
 3. **Employees**:
     - Add and update employee details and roles.
-4. **Jobs**:
+4. **Positions**:
+    - Create and manage different positions, including titles, salaries, and job descriptions.
+5. **Jobs**:
     - Track tasks assigned to projects with relevant notes.
-5. **Billing**:
+6. **Billing**:
     - Manage invoices and associate them with specific projects.
 
 ---
@@ -42,9 +42,11 @@ organizations. It allows you to manage projects, tasks, clients, employees, and 
    View and edit client information.
 4. **Employee Directory**:  
    A comprehensive list of all employees and their respective roles.
-5. **Job Tracking**:  
+5. **Position Management**:  
+   Create, view, and edit job positions, including salaries and responsibilities.
+6. **Job Tracking**:  
    View and manage all tasks related to projects.
-6. **Billing Overview**:  
+7. **Billing Overview**:  
    List of invoices issued, with links to their corresponding projects.
 
 ---
@@ -54,7 +56,7 @@ organizations. It allows you to manage projects, tasks, clients, employees, and 
 #### **1. Initial Setup**
 
 - [x] Configure the Django project and app structure.
-- [x] Create models for `Project`, `Client`, `Employee`, `Job`, and `Bill`.
+- [x] Create models for Project, Client, Employee, Position, Job, and Bill.
 - [x] Implement admin panel functionality for easy data management.
 
 #### **2. Core Features**
@@ -63,6 +65,7 @@ organizations. It allows you to manage projects, tasks, clients, employees, and 
 - [x] Build views and templates for detailed project pages.
 - [x] Implement Many-to-Many relationships for employees and projects.
 - [x] Add filtering and search functionality for projects.
+- [x] Implement position management for employees.
 
 #### **3. Enhanced Features**
 
@@ -81,30 +84,34 @@ organizations. It allows you to manage projects, tasks, clients, employees, and 
 ### 🛠️ **HOW TO RUN LOCALLY**
 
 1. **Clone the repository**:
-   ```bash  
-   git clone https://github.com/your-repository/project-management.git  
-   cd project-management  
-   ```  
+
+```bash
+git clone https://github.com/your-repository/project-management.git  
+cd project-management
+```
 
 2. **Set up the virtual environment**:
-   ```bash  
-   python -m venv .venv  
-   source .venv/bin/activate  # For Windows: .venv\Scripts\activate  
-   pip install -r requirements.txt  
-   ```  
+
+```bash
+python -m venv .venv  
+source .venv/bin/activate  # For Windows: .venv\Scripts\activate  
+pip install -r requirements.txt
+```
 
 3. **Run migrations**:
-   ```bash  
-   python manage.py migrate  
-   ```  
+
+```bash
+python manage.py migrate
+```
 
 4. **Start the development server**:
-   ```bash  
-   python manage.py runserver  
-   ```  
+
+```bash
+python manage.py runserver
+```
 
 5. **Access the app**:  
-   Open your browser and navigate to `http://127.0.0.1:8000/`.
+   Open your browser and navigate to http://127.0.0.1:8000/.
 
 ---
 
