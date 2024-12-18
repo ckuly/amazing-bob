@@ -1,49 +1,12 @@
 {% extends "base.html" %}
 
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}User Projects{% endblock %}</title>
+</head>
 {% block content %}
 <html>
-<head>
-    <title>Projects</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .project {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            padding: 10px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .project-header {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 5px 0;
-        }
-        .crud-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        .crud-buttons a {
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        .crud-buttons a.disabled {
-            background-color: #ccc;
-        }
-    </style>
-</head>
 <body>
     <h1>My Projects</h1>
 

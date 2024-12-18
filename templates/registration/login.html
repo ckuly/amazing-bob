@@ -1,31 +1,31 @@
 {% extends "base.html" %}
 
+    <title>{% block title %}Login{% endblock %}</title>
 {% block content %}
   {% if form.errors %}
-    <p>Login error, please try again!</p>
+    <p class="error-message">Login error, please try again!</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>You do not have access to this information. You need to log in.</p>
+      <p class="error-message">You do not have access to this information. You need to log in.</p>
     {% endif %}
   {% endif %}
 
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>Username: </td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>Password: </td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="Log in" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
-
-  <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+  <div class="container register">
+    <h3>Log In</h3>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input name="username" type="text" class="form-control" id="username" placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-instagram register-button">Log In</button>
+    </form>
+    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+  </div>
 {% endblock %}

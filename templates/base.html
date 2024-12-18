@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
+    <link rel="icon" href="{% static 'logo.ico' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}Home{% endblock %}</title>
 </head>
@@ -9,7 +10,7 @@
     <div id="header">
         <div class="header-container">
             <div class="logo">
-                <a href="/home/">Amazing Bob</a>
+                <a href="/home/">AMAZING BOB</a>
             </div>
             <nav class="nav-links">
                 <a href="/home/projects" class="header-button">All Projects</a>
@@ -23,7 +24,7 @@
                         <input type="submit" value="Logout" class="header-button">
                     </form>
                 {% else %}
-                    <a href="/accounts/register" class="header-button">Register</a>
+                    <a href="{% url 'register' %}" class="header-button">Register</a>  <!-- Now correctly links to the registration page -->
                     <a href="/accounts/login" class="header-button">Login</a>
                 {% endif %}
             </nav>

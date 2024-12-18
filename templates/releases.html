@@ -1,37 +1,14 @@
 {% extends "base.html" %}
 
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}Releases{% endblock %}</title>
+</head>
 
 {% block content %}
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Releases - Amazing Bob</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .release-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-        .release-item h2 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-        .release-item p {
-            margin: 0;
-        }
-        .release-date {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="release-item">
+<div class="container full-height">
+    <div class="release-item centered">
         <div class="release-date">Version v0.1 - Released on January 1, 2024</div>
         <h2>New Features</h2>
         <ul>
@@ -40,6 +17,27 @@
             <li>Added notifications for project updates.</li>
         </ul>
     </div>
-</body>
-</html>
+</div>
+<div class="container full-height">
+    <div class="release-item centered">
+        <div class="release-date">Version v0.1 - Released on January 1, 2024</div>
+        <h2>New Features</h2>
+        <ul>
+            <li>Introduced project dashboard for better project management.</li>
+            <li>Improved user interface with easier navigation.</li>
+            <li>Added notifications for project updates.</li>
+        </ul>
+    </div>
+</div>
+<div class="container full-height">
+    <div class="release-item centered">
+        <div class="release-date">Version v0.1 - Released on January 1, 2024</div>
+        <h2>New Features</h2>
+        <ul>
+            <li>Introduced project dashboard for better project management.</li>
+            <li>Improved user interface with easier navigation.</li>
+            <li>Added notifications for project updates.</li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
