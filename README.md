@@ -1,4 +1,4 @@
-### **AMAZING BOB by ckul**
+### **AMAZING BOB**
 
 This is an open-source Django-based web application designed to streamline project management for teams and organizations. It allows you to manage projects, tasks, clients, employees, positions, and billing all in one place.
 
