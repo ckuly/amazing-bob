@@ -11,6 +11,10 @@ def faq(request):
 def releases(request):
     return render(request, 'releases.html')
 
+def user_projects(request):
+    projects = Project.objects.filter(manager=request.user)
+    return render(request, 'user/projects.html', {'projects': projects})
+
 def project_dashboard(request):
     projects = Project.objects.all()  # Retrieve all projects
     return render(request, 'project_dashboard.html', {'projects': projects})

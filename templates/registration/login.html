@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
   {% if form.errors %}
     <p>Login error, please try again!</p>
   {% endif %}
@@ -29,5 +28,4 @@
   </form>
 
   <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
-
 {% endblock %}
