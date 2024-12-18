@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Project
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
@@ -15,9 +15,24 @@ def faq(request):
 def releases(request):
     return render(request, 'releases.html')
 
-def user_projects(request):
-    projects = Project.objects.filter(manager=request.user)
-    return render(request, 'user/projects.html', {'projects': projects})
+
+def user_projects(request, pk=None):
+    if pk:
+        # Fetch the specific project by primary key
+        project = get_object_or_404(Project, pk=pk)
+        context = {
+            'project': project,
+        }
+        template = 'user/project_detail.html'  # Use a dedicated template for the detailed view
+    else:
+        # Fetch all projects for the user_projects view
+        projects = Project.objects.all()
+        context = {
+            'projects': projects,
+        }
+        template = 'user/projects.html'  # Use the existing template for the list view
+
+    return render(request, template, context)
 
 def project_dashboard(request):
     projects = Project.objects.all()  # Retrieve all projects

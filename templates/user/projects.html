@@ -49,9 +49,7 @@
             </ul>
 
             <div class="crud-buttons">
-                <a href="#" class="header-button">Edit</a>
-                <a href="#" class="header-button">Delete</a>
-                <a href="#" class="header-button">View</a>
+                <a href="{% url 'user_projects' project.pk %}" class="header-button">View</a>
             </div>
         </div>
     {% empty %}
