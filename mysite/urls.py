@@ -20,7 +20,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('', RedirectView.as_view(url='home/', permanent=True)),
-    path('home/', include("phandling.urls")),
+    path('home/', include("amazingbob.urls")), # NOQA
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]

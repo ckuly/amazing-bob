@@ -21,7 +21,11 @@
             <h4>Employees:</h4>
             <ul class="employee-list">
                 {% for employee in project.employees.all %}
-                    <li>{{ employee.name }} {{ employee.surname }} - {{ employee.position }}</li>
+                    <li>{{ employee.id }}. {{ employee.name }} {{ employee.surname }} -
+                        {% for position in employee.positions.all %}
+                            {{ position.title }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
                 {% empty %}
                     <li>No employees assigned.</li>
                 {% endfor %}

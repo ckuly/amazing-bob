@@ -136,6 +136,6 @@ dmypy.json
 cython_debug/
 
 # Project specific
-phandling/__pycache__/
-phandling/migrations/
+amazingbob/__pycache__/
+amazingbob/migrations/
 mysite/__pycache__/

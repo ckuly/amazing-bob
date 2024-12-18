@@ -6,29 +6,32 @@
     <title>{% block title %}User Projects{% endblock %}</title>
 </head>
 {% block content %}
-<html>
-<body>
-    <h1>My Projects</h1>
-
+<div class="container full-height">
     {% for project in projects %}
-        <div class="project">
-            <div class="project-header">
-                <strong>[{{ project.id }}] {{ project.title }}</strong> ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
+        <div class="release-item centered project-item">
+            <div class="release-date">
+                <strong>[{{ project.id }}]</strong> {{ project.title }} - ({{ project.start_date }} - {{ project.end_date|default:"Ongoing" }})
             </div>
-            <p><strong>Manager:</strong> {{ project.manager }}</p>
-            <p><strong>Client:</strong> {{ project.client.company }}</p>
+            <div class="project-details">
+                <p><strong>Manager:</strong> {{ project.manager }}</p>
+                <p><strong>Client:</strong> {{ project.client.company }}</p>
+            </div>
 
             <h4>Employees:</h4>
-            <ul>
+            <ul class="employee-list">
                 {% for employee in project.employees.all %}
-                    <li>{{ employee.name }} {{ employee.surname }} - {{ employee.position }}</li>
+                    <li>{{ employee.id }}. {{ employee.name }} {{ employee.surname }} -
+                        {% for position in employee.positions.all %}
+                            {{ position.title }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
                 {% empty %}
                     <li>No employees assigned.</li>
                 {% endfor %}
             </ul>
 
             <h4>Job:</h4>
-            <ul>
+            <ul class="job-list">
                 {% if project.jobs %}
                     <li>{{ project.jobs.title }}: {{ project.jobs.notes|default:"No notes" }}</li>
                 {% else %}
@@ -37,7 +40,7 @@
             </ul>
 
             <h4>Bill:</h4>
-            <ul>
+            <ul class="bill-list">
                 {% if project.bills %}
                     <li>Issued: {{ project.bills.date_of_issue }} | Cost: {{ project.bills.cost }} EUR</li>
                 {% else %}
@@ -46,14 +49,13 @@
             </ul>
 
             <div class="crud-buttons">
-                <a href="#" class="disabled">Edit</a>
-                <a href="#" class="disabled">Delete</a>
-                <a href="#" class="disabled">View</a>
+                <a href="#" class="header-button">Edit</a>
+                <a href="#" class="header-button">Delete</a>
+                <a href="#" class="header-button">View</a>
             </div>
         </div>
     {% empty %}
         <p>No projects found.</p>
     {% endfor %}
-</body>
-</html>
+</div>
 {% endblock %}

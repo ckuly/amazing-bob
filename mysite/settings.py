@@ -29,8 +29,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'amazingbob',  # NOQA
     'django.contrib.admin',
-    'phandling',  # NOQA
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

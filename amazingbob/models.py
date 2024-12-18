@@ -8,9 +8,9 @@ class Project(models.Model):
     end_date = models.DateField(blank=True, null=True)
     client = models.ForeignKey('Client', on_delete=models.CASCADE)
     manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    employees = models.ManyToManyField('Employee')  # employees can work on multiple projects.
-    jobs = models.ForeignKey('Job', on_delete=models.CASCADE)  # each job is tied to a single project.
-    bills = models.ForeignKey('Bill', on_delete=models.CASCADE)  # each bill is tied to a single project.
+    employees = models.ManyToManyField('Employee')
+    jobs = models.ForeignKey('Job', on_delete=models.CASCADE)
+    bills = models.ForeignKey('Bill', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -29,10 +29,21 @@ class Client(models.Model):
 class Employee(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    position = models.CharField(max_length=100)
+    positions = models.ManyToManyField('Position', related_name='employees')  # Employees can have multiple positions
 
     def __str__(self):
         return f"{self.name} {self.surname}"
+
+
+class Position(models.Model):
+    title = models.CharField(max_length=255)
+    salary = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=7)  # Optional description of the position
+    description = models.TextField(blank=True, null=True)  # Optional description of the position
+    responsibilities = models.TextField(blank=True, null=True)  # Optional description of job responsibilities
+    requirements = models.TextField(blank=True, null=True)  # Optional requirements for the position
+
+    def __str__(self):
+        return self.title
 
 
 class Job(models.Model):
