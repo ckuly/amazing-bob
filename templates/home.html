@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div id="content" class="container full-height">
+    <div class="info-section centered">
+        <h2>About Amazing Bob</h2>
+        <p>At Amazing Bob, we gather the best of tech news, updates, and community resources. Whether you're a developer, tech enthusiast, or just looking for the latest releases, we've got you covered.</p>
+    </div>
+
+    <div class="newsletter-section centered">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="btn btn-instagram">Subscribe</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

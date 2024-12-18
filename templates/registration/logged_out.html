@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %}Logged Out{% endblock %}
+
 {% block content %}
-  <p>Succesful log-out!</p>
-  <a href="{% url 'login'%}">Login again.</a>
+  {% if request.user.is_authenticated %}
+    <p class="error-message">You do not have access to this information. You need to log in.</p>
+  {% else %}
+    <div class="container register">
+      <h3>Logged Out</h3>
+      <p>Successful log-out!</p>
+      <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-instagram register-button">Login Again</button>
+      </form>
+    </div>
+  {% endif %}
 {% endblock %}

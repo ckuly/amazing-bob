@@ -2,10 +2,6 @@
 
     <title>{% block title %}Login{% endblock %}</title>
 {% block content %}
-  {% if form.errors %}
-    <p class="error-message">Login error, please try again!</p>
-  {% endif %}
-
   {% if next %}
     {% if user.is_authenticated %}
       <p class="error-message">You do not have access to this information. You need to log in.</p>

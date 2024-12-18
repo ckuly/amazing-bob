@@ -10,7 +10,7 @@ body, ul, li, a {
 /* Header bar container */
 #header {
     width: 100%;
-    background-color: #ffffff;
+    background-color: #ADD8E6; /* Light blue */
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: center;
@@ -33,9 +33,9 @@ body, ul, li, a {
 
 /* Logo styling */
 .logo a {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
-    color: #333;
+    color: #333333;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -54,22 +54,22 @@ body, ul, li, a {
 .header-button {
     font-size: 14px;
     font-weight: 500;
-    color: #262626;
+    color: #333333;
     padding: 10px 15px;
-    border-radius: 8px;
-    background-color: #f8f8f8;
+    border-radius: 16px;
+    background-color: #FFD700; /* Light orange */
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-button:hover {
-    background-color: #eeeeee;
+    background-color: #FFD700;
     color: #000000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header-button.active {
-    background-color: #3897f0;
+    background-color: #FFD700;
     color: #ffffff;
 }
 

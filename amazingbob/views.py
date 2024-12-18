@@ -1,4 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+
+from .forms import ProjectForm
 from .models import Project
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
@@ -7,7 +10,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'home.html')
 
 def faq(request):
     return render(request, 'faq.html')
@@ -65,3 +68,40 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'register.html')
+
+
+@login_required
+def project_create(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.manager = request.user  # Associate the project with the logged-in user
+            project.save()
+            return redirect('user_projects')
+    else:
+        form = ProjectForm()
+
+    return render(request, 'user/project_create.html', {'form': form})
+
+@login_required
+def project_delete(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if request.method == 'POST':
+        if 'confirm' in request.POST:
+            project.delete()
+            messages.success(request, f'Project "{project.title}" deleted successfully.')
+            return redirect('user_projects')
+    return render(request, 'user/project_delete.html', {'project': project})
+
+@login_required
+def project_edit(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('user_projects')
+    else:
+        form = ProjectForm(instance=project)
+    return render(request, 'user/project_edit.html', {'form': form})
